@@ -12,7 +12,10 @@ cors = CORS(app, resources={
         }
 })
 
-app.config['SECRET_KEY'] = 'your_secret_key'
+
+
+import os
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_secret_key')
 
 # Initialize Database
 init_db()
